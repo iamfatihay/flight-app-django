@@ -20,12 +20,27 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
+
+# # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = config('SECRET_KEY')
+# DATABASES = { 
+#     "default": { 
+#         "ENGINE": "django.db.backends.sqlite3", 
+#         "NAME": BASE_DIR / "db.sqlite3", 
+#     } 
+# } 
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = True
-# DEBUG = config("DEBUG")
+
+
+# DATABASES = { 
+#     "default": { 
+#         "ENGINE": "django.db.backends.sqlite3", 
+#         "NAME": BASE_DIR / "db.sqlite3", 
+#     } 
+# } 
 
 ALLOWED_HOSTS = ['*']
 
@@ -40,13 +55,14 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    # Third party
+    #third party apps
     'rest_framework',
     'drf_yasg',
+    
+
 ]
 
 MIDDLEWARE = [
-
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -75,6 +91,8 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'main.wsgi.application'
+
+
 
 
 # Password validation
