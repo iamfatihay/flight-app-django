@@ -1,8 +1,10 @@
 from .base import * 
  
+DEBUG = True
+
 THIRD_PARTY_APPS = ["debug_toolbar"] 
  
-DEBUG = config("DEBUG") 
+# DEBUG = config("DEBUG") 
  
 INSTALLED_APPS += THIRD_PARTY_APPS 
  
