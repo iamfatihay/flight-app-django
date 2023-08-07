@@ -1,3 +1,4 @@
+from dj_rest_auth.serializers import TokenSerializer
 from rest_framework import serializers
 from django.contrib.auth.models import User
 from rest_framework.validators import UniqueValidator
@@ -38,3 +39,16 @@ class RegisterSerializer(serializers.ModelSerializer):
         user.save()
 
         return user
+
+
+class UserTokenSerializer(serializers.ModelSerializer):
+    class Meta():
+        model = User
+        fields = ("id", "first_name", "last_name")
+
+
+class CustomTokenSerializer(TokenSerializer):
+    user = UserTokenSerializer(read_only=True)
+
+    class Meta(TokenSerializer.Meta):
+        fields = ("key", "user")
