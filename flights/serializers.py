@@ -8,7 +8,9 @@ class FlightSerializer(serializers.ModelSerializer):
         fields=("__all__")
 
 class ReservationSerializer(serializers.ModelSerializer):
-
+    user=serializers.StringRelatedField()
+    user_id=serializers.IntegerField()
+    
     class Meta:
         model=Reservation
         fields=("__all__")
